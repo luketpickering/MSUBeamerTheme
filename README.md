@@ -14,6 +14,10 @@ You can install to your local texemf area by executing [install.sh](./install.sh
 ## An example
 
 Include in your beamer project with `\usetheme{MSU_Light}`.
-For a more detailed tutorial, see the [example](./slides.template.tex) 
+For a more detailed tutorial, see the [example](./slides.template.tex)
 and the [render](./slides.template.pdf).
 
+![Title](./title.png)
+![Arrows](./arrows.png)
+![Restyle](./restyle.png)
+![Thankyou](./thankyou.png)
