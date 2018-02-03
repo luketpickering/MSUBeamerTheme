@@ -1,0 +1,70 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usefonttheme{professionalfonts}
+\usepackage{fontspec}
+
+\usetheme{MSU_Light}
+
+\setsansfont[
+	Path = /Users/luke/Library/Fonts/,
+	UprightFont = *-Light,
+ 	BoldFont = *-SemiBold,
+ 	ItalicFont = *-LightItalic]{Montserrat}
+
+\newfontfamily\normalfont{Montserrat}[Path = /Users/luke/Library/Fonts/,
+	UprightFont = *-Light,
+ 	BoldFont = *-SemiBold,
+ 	ItalicFont = *-LightItalic]
+\newfontfamily\titlefont{Montserrat}[Path = /Users/luke/Library/Fonts/,
+	UprightFont = *-Bold]
+\newfontfamily\headingfont{Montserrat}[Path = /Users/luke/Library/Fonts/,
+	UprightFont = *-SemiBold]
+
+\normalfont\selectfont
+
+\title{A title}
+\date{\today}
+\subtitle{Meeting name, Location}
+\author[S. name]{\textbf{Author~Authorson}, An.~Authorson}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\section{Sec1}
+\subsection{Subsec}
+\begin{frame}{Frame title}
+\begin{tikzoverlayarea}
+  \begin{tikztextarea}{0.5\textwidth}
+		\begin{itemize}
+			\item List.
+			\item Sub list:
+			\begin{itemize}
+				\item And another thing
+			\end{itemize}
+			\item {\tiny Can make things small too.}
+      \item Some more text.
+		\end{itemize}
+  \end{tikztextarea}
+    % \inserttikzpicturerotatefillwhite{0.82\textwidth}{0.75\textheight}{0.32\textwidth}{MyPicture}
+    % \inserttikzpicturerotatefillwhite{0.65\textwidth}{0.35\textheight}{0.425\textwidth}{MyOtherPicture}
+\end{tikzoverlayarea}
+\end{frame}
+
+\begin{frame}
+\thanksshield
+\end{frame}
+
+\begin{frame}
+\backups
+\end{frame}
+
+\end{document}
