@@ -1,0 +1,50 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+	\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+	
+	\fill[MSU_BKGCOLOR] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+
+	\ifnum\thepage>1\relax %% Non-title
+		%spear divider
+		\node at (0.5\paperwidth,0.9\paperheight) {\includegraphics[width=0.95\paperwidth]{MSU_design_elements/spear-medium-green-CMYK}};
+		%name
+		\node[white,font=\small] at (0.91\paperwidth,0.05\paperheight) {\insertshortauthor};
+		%date
+		\node[MSU_HIGHLIGHTCOLOR,font=\small\bf] at (0.01\paperwidth,0.975\paperheight) [anchor=north west] {\insertdate};
+		%frame number
+		\node[MSU_HIGHLIGHTCOLOR,font=\small\bf] at (0.95\paperwidth,0.975\paperheight) [anchor=north west] {\insertframenumber};
+
+		\node at (0.12\paperwidth,0.06\paperheight) {\includegraphics[width=0.25\paperwidth]{MSU_design_elements/MSU-Wordmark-White}};
+
+	\else %% Title
+		\node at (0.8\paperwidth,0.7\paperheight) {\includegraphics[width=0.35\paperwidth]{MSU_design_elements/helmet_green}};
+		\node at (0.5\paperwidth,0.25\paperheight) {\includegraphics[width=0.95\paperwidth]{MSU_design_elements/spear-medium-green-CMYK}};
+	
+		\node at (0,\paperheight) [anchor=north west] {\includegraphics[width=0.425\paperwidth]{MSU_design_elements/MSU-Wordmark-White}};
+	
+	\fi
+	
+%	\draw[MSU_4, very thick] (0,0) rectangle(0.95\paperwidth,0.95\paperheight);
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{MSU_Light}[1][]
+{ 
+	\begin{tikzpicture}
+		\useasboundingbox (0.5,0) rectangle(0.8\paperwidth,0.9\paperheight);
+%		\draw[MSU_4, very thick, dashed] (0,0) rectangle(0.8\paperwidth,0.9\paperheight);
+		
+		\node[MSU_TEXTCOLOR,font=\large,text width=0.55\paperwidth] at (0,3.5) [anchor=south west] {\nohyphens{\insertauthor}};
+		\node[MSU_TEXTCOLOR,font=\large\headingfont] at (0,2.5) [anchor=south west] {\insertdate};
+		\node[MSU_TEXTCOLOR,font=\large\headingfont] at (0,2) [anchor=south west] {\insertsubtitle};
+		\node[MSU_TITLECOLOR,font=\huge\titlefont,text width=11.25cm] at (0,1.5) [anchor=north west] {\inserttitle};
+
+	\end{tikzpicture}
+	\vfill
+}
+
+
+\mode<all>

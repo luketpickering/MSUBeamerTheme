@@ -1,0 +1,130 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+\RequirePackage{environ}
+\RequirePackage{hyphenat}
+
+% Settings
+\useinnertheme{MSU_Light}
+\useoutertheme{MSU_Light}
+\usecolortheme{MSU_Light}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\mode<all>
+
+\NewEnviron{tikzoverlayarea}[1]{
+  \begin{tikzpicture}[remember picture, overlay]
+	\begin{scope}[xshift=-1cm,yshift=-2.5cm]
+		\BODY
+    \end{scope}
+  \end{tikzpicture}
+}
+
+\newcommand{\drawareagrid}[0]{
+	\draw (0,0) -- (0,6.25) -- (11.75,6.25) -- (11.75,0) -- cycle;
+
+	\draw[red,latex-latex] (0,0) -- (-0.5,0);
+	\draw[red,latex-latex] (11.75,0) -- (12.25,0);
+
+	\draw[red,latex-latex] (0,6.25) -- (-0.5,6.25);
+	\draw[red,latex-latex] (11.75,6.25) -- (12.25,6.25);
+
+	\foreach \y in {0,...,25}
+	{
+		\pgfmathsetmacro\absy{0.25*\y};
+		\draw (0,\absy) -- (11.75,\absy);
+	}
+
+	\foreach \y in {1,...,24}
+	{
+		\pgfmathsetmacro\absy{0.25*\y};
+
+		\node[font=\tiny] at (-0.25,\absy) {\absy};
+	}
+
+	\foreach \x in {0,...,47}
+	{
+		\pgfmathsetmacro\absx{0.25*\x};
+		\draw (\absx,0) -- (\absx,6.25);
+	}
+
+	\foreach \x in {0,...,47}
+	{
+		\pgfmathsetmacro\absx{0.25*\x};
+		\node[font=\tiny] at (\absx,6.5) [rotate=90] {\absx};
+	}
+}
+
+\newcommand{\thanksshield}[0]{
+	\begin{tikzpicture}[remember picture, overlay]
+	\begin{scope}[xshift=-0.5cm,yshift=-2.75cm]
+
+		\node at (0.45\paperwidth,0.175\paperheight) {\includegraphics[width=0.5\paperwidth]{MSU_design_elements/shield-green-line-CMYK}};
+		\node[white,font=\huge\titlefont] at (0.45\paperwidth,0.175\paperheight) [anchor=center] {Thank you};
+	\end{scope}
+	\end{tikzpicture}
+}
+
+\newcommand{\backups}[0]{
+
+	\begin{tikzpicture}[remember picture, overlay]
+	\begin{scope}[xshift=-0.5cm,yshift=-2.75cm]
+		\node[white,font=\huge\titlefont] at (0.45\paperwidth,0.175\paperheight) [anchor=center] {Backups};
+	\end{scope}
+	\end{tikzpicture}
+}
+
+\NewEnviron{tikztextarea}[1]{
+  \node[text width=#1, MSU_TEXTCOLOR] at (0,6.25) [anchor=north west] {\BODY};
+}
+
+\NewEnviron{tikztextareapos}[3]{
+  \node[text width=#3, MSU_TEXTCOLOR] at (#1,#2) [anchor=north west] {\BODY};
+    \end{scope}
+}
+
+\newcommand{\inserttikzarrow}[5]{
+	\draw[#1] (#2,#3) -- (#4,#5);
+}
+
+\newcommand{\inserttikznode}[4]{
+  \node[#1] at (#2,#3) [anchor=north west] {#4};
+    \end{scope}
+}
+
+\newcommand{\inserttikzpicture}[4]{
+  \node at (#1,#2) [anchor=north west] {\includegraphics[width=#3]{#4}};
+}
+\newcommand{\inserttikzpicturefillwhite}[4]{
+  \node at (#1,#2) [anchor=north west,fill=white] {\includegraphics[width=#3]{#4}};
+}
+\newcommand{\inserttikzpicturerotate}[4]{
+  \node at (#1,#2) [xshift=#3, anchor=north west, rotate=270] {\includegraphics[width=#3]{#4}};
+}
+\newcommand{\inserttikzpicturerotatefillwhite}[4]{
+  \node at (#1,#2) [xshift=#3, anchor=north west, rotate=270,fill=white] {\includegraphics[width=#3]{#4}};
+}
+
+
+\setbeamertemplate{itemize item}{\raise1.25pt\hbox{\color{MSU_HIGHLIGHTCOLOR}{$\blacktriangleright$}}}
+\setbeamertemplate{itemize subitem}{{\scriptsize\raise1.25pt\hbox{\color{MSU_HIGHLIGHTCOLOR}{$\blacktriangleright$}}}}
+
+\setbeamertemplate{section in toc}{%
+  \color{MSU_HIGHLIGHTCOLOR}{\bf\inserttocsectionnumber.}~\color{MSU_TEXTCOLOR}{\inserttocsection}}
+\setbeamertemplate{subsection in toc}{%
+  \hspace{1.2em}\color{MSU_HIGHLIGHTCOLOR}{$\blacktriangleright$}~\color{MSU_TEXTCOLOR}{\inserttocsubsection}\par}
+
+\setbeamertemplate{enumerate item}{\bf\hbox{\color{MSU_HIGHLIGHTCOLOR}{\insertenumlabel.}}}
+
+\makeatletter
+\newcommand\listofframes{\@starttoc{lbf}}
+\makeatother
+
+\addtobeamertemplate{frametitle}{}{%
+  \addcontentsline{lbf}{section}{\protect\makebox[2em][l]{%
+    \protect\usebeamercolor[fg]{structure}\insertframenumber\hfill}%
+  \insertframetitle\par}%
+}
