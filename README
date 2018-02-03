@@ -1,0 +1,7 @@
+#MSU_Light Beamer theme
+Simple TiKz-based beamer theme to write latex slides
+with a distincly MSU color and logo theme. Includes
+some helpful TikZ macros for text areas, image insertion
+and arrow drawing.
+
+See the [example](slides.template.tex) and the [render](slides.template.pdf)

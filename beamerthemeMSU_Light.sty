@@ -17,10 +17,23 @@
 
 \NewEnviron{tikzoverlayarea}{
   \begin{tikzpicture}[remember picture, overlay]
-	\begin{scope}[xshift=-1cm,yshift=-2.5cm]
+	\begin{scope}[xshift=-0.5cm,yshift=-2.75cm]
 		\BODY
     \end{scope}
   \end{tikzpicture}
+}
+
+\newcommand{\drawbottomoverlay}[0]{
+    \node[white,font=\small] at (11.149,-0.674) {\insertshortauthor};
+    \node at (1.037,-0.578) {\includegraphics[width=0.25\paperwidth]{MSU_design_elements/MSU-Wordmark-White}};
+}
+\newcommand{\drawbottomoverlayblack}[0]{
+    \node[black,font=\small] at (11.149,-0.674) {\insertshortauthor};
+    \node at (1.037,-0.578) {\includegraphics[width=0.25\paperwidth]{MSU_design_elements/MSU-Wordmark-Black}};
+}
+\newcommand{\drawbottomoverlaygreen}[0]{
+    \node[MSU_1,font=\small] at (11.149,-0.674) {\insertshortauthor};
+    \node at (1.037,-0.578) {\includegraphics[width=0.25\paperwidth]{MSU_design_elements/MSU-Wordmark-Green}};
 }
 
 \newcommand{\drawareagrid}[0]{
@@ -61,7 +74,6 @@
 \newcommand{\thanksshield}[0]{
 	\begin{tikzpicture}[remember picture, overlay]
 	\begin{scope}[xshift=-0.5cm,yshift=-2.75cm]
-
 		\node at (0.45\paperwidth,0.175\paperheight) {\includegraphics[width=0.5\paperwidth]{MSU_design_elements/shield-green-line-CMYK}};
 		\node[white,font=\huge\titlefont] at (0.45\paperwidth,0.175\paperheight) [anchor=center] {Thank you};
 	\end{scope}
@@ -69,7 +81,6 @@
 }
 
 \newcommand{\backups}[0]{
-
 	\begin{tikzpicture}[remember picture, overlay]
 	\begin{scope}[xshift=-0.5cm,yshift=-2.75cm]
 		\node[white,font=\huge\titlefont] at (0.45\paperwidth,0.175\paperheight) [anchor=center] {Backups};
@@ -83,16 +94,14 @@
 
 \NewEnviron{tikztextareapos}[3]{
   \node[text width=#3, MSU_TEXTCOLOR] at (#1,#2) [anchor=north west] {\BODY};
-    \end{scope}
 }
 
 \newcommand{\inserttikzarrow}[5]{
-	\draw[#1] (#2,#3) -- (#4,#5);
+	\draw[#1, -latex] (#2,#3) -- (#4,#5);
 }
 
 \newcommand{\inserttikznode}[4]{
   \node[#1] at (#2,#3) [anchor=north west] {#4};
-    \end{scope}
 }
 
 \newcommand{\inserttikzpicture}[4]{
@@ -102,10 +111,10 @@
   \node at (#1,#2) [anchor=north west,fill=white] {\includegraphics[width=#3]{#4}};
 }
 \newcommand{\inserttikzpicturerotate}[4]{
-  \node at (#1,#2) [xshift=#3, anchor=north west, rotate=270] {\includegraphics[width=#3]{#4}};
+  \node at (#1,#2) [anchor=south west, rotate=270] {\includegraphics[width=#3]{#4}};
 }
 \newcommand{\inserttikzpicturerotatefillwhite}[4]{
-  \node at (#1,#2) [xshift=#3, anchor=north west, rotate=270,fill=white] {\includegraphics[width=#3]{#4}};
+  \node at (#1,#2) [anchor=south west, rotate=270,fill=white] {\includegraphics[width=#3]{#4}};
 }
 
 

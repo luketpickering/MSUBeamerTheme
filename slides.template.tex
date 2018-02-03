@@ -7,6 +7,13 @@
 
 \usetheme{MSU_Light}
 
+%%Colors can be redfined here -- These are the names that should be overriden to re-style various parts of the theme
+\definecolor{MSU_BKGCOLOR}{HTML}{97A2A2}
+\definecolor{MSU_TITLECOLOR}{HTML}{18453B}
+\definecolor{MSU_TEXTCOLOR}{HTML}{000000}
+\definecolor{MSU_HIGHLIGHTCOLOR}{HTML}{CB5A28}
+
+
 \setsansfont[
 	Path = /Users/luke/Library/Fonts/,
 	UprightFont = *-Light,
@@ -39,25 +46,80 @@
 \tableofcontents
 \end{frame}
 
-\section{Sec1}
-\subsection{Subsec}
-\begin{frame}{Frame title}
+\section{Examples}
+\subsection{Text area}
+\begin{frame}{Text area}
 \begin{tikzoverlayarea}
   \begin{tikztextarea}{0.5\textwidth}
-		\begin{itemize}
-			\item List.
-			\item Sub list:
-			\begin{itemize}
-				\item And another thing
-			\end{itemize}
-			\item {\tiny Can make things small too.}
+    \begin{itemize}
+      \item List.
+      \item Sub list:
+      \begin{itemize}
+        \item And another thing
+      \end{itemize}
+      \item {\tiny Can make things small too.}
+      \item \raisebox{0.2em}{\tiny But might want to raise it a smidge.}
       \item Some more text.
-		\end{itemize}
+    \end{itemize}
   \end{tikztextarea}
-    % \inserttikzpicturerotatefillwhite{0.82\textwidth}{0.75\textheight}{0.32\textwidth}{MyPicture}
-    % \inserttikzpicturerotatefillwhite{0.65\textwidth}{0.35\textheight}{0.425\textwidth}{MyOtherPicture}
 \end{tikzoverlayarea}
 \end{frame}
+
+\subsection{Positioning grid}
+\begin{frame}{Positioning grid}
+\begin{tikzoverlayarea}
+  \drawareagrid
+\end{tikzoverlayarea}
+\end{frame}
+
+\subsection{Arrows}
+\begin{frame}{Arrows}
+\begin{tikzoverlayarea}
+  \drawareagrid
+  \inserttikzarrow{red,very thick, -latex}{1}{4}{3.25}{2.0}
+  \inserttikznode{red}{1}{4.5}{(1,4)}
+  \inserttikznode{red}{3.25}{2.5}{(3.25,2)}
+
+  %For more complicated arrows and paths, you can write the TikZ directly
+  \draw[blue,-latex, very thick] (4,4) to [out=90,in=180] (6,6);
+\end{tikzoverlayarea}
+\end{frame}
+
+\subsection{Graphics}
+\begin{frame}{Graphics}
+\begin{tikzoverlayarea}
+  \drawareagrid
+  \inserttikzpicturerotatefillwhite{1}{3}{2cm}{MSU_design_elements/helmet_green.eps}
+  \inserttikzpicturefillwhite{5}{5}{4cm}{MSU_design_elements/helmet_green.eps}
+  \inserttikzpicture{0}{6}{3cm}{MSU_design_elements/helmet_green.eps}
+\end{tikzoverlayarea}
+\end{frame}
+
+\subsection{Text nodes}
+\begin{frame}{Text nodes}
+\begin{tikzoverlayarea}
+  \drawareagrid
+  \inserttikznode{font=\bf}{3}{3}{Some text}
+  \inserttikznode{MSU_13,font=\bf}{6}{4}{Some other text}
+  %For more complicated text nodes, you can write the TikZ directly
+
+  \node[blue,font=\headingfont] at (10,5) [anchor=south west, rotate=-90] {$y=mx+c$};
+\end{tikzoverlayarea}
+\end{frame}
+
+\definecolor{MSU_HIGHLIGHTCOLOR}{HTML}{000000}
+\section{Slide re-styling}
+\begin{frame}{Slide re-styling}
+\begin{tikzoverlayarea}
+  \begin{tikztextarea}{0.5\textwidth}
+    Highlights and bottom branding should appear black for this slide!
+  \end{tikztextarea}
+  \inserttikzpicturefillwhite{8.5}{4}{4cm}{MSU_design_elements/helmet_green.eps}
+\drawbottomoverlayblack
+\end{tikzoverlayarea}
+\end{frame}
+
+\definecolor{MSU_HIGHLIGHTCOLOR}{HTML}{CB5A28}
 
 \begin{frame}
 \thanksshield
