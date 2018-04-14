@@ -6,9 +6,9 @@
 \RequirePackage{hyphenat}
 
 % Settings
-\useinnertheme{MSU_Light}
-\useoutertheme{MSU_Light}
-\usecolortheme{MSU_Light}
+\useinnertheme{MSU_Light169}
+\useoutertheme{MSU_Light169}
+\usecolortheme{MSU_Light169}
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{blocks}[rounded][shadow=true]
@@ -24,31 +24,33 @@
 }
 
 \newcommand{\drawbottomoverlay}[0]{
-    \node[white,font=\small] at (11.149,-0.674) {\insertshortauthor};
-    \node at (1.037,-0.578) {\includegraphics[width=0.25\paperwidth]{MSU_design_elements/MSU-Wordmark-White}};
+    \node[white,font=\small] at (14.54025,-0.3426) {\insertshortauthor};
+    \node at (1.42,-0.2535) {\includegraphics[width=0.25\paperwidth]{MSU_design_elements/MSU-Wordmark-White}};
 }
+
 \newcommand{\drawbottomoverlayblack}[0]{
-    \node[black,font=\small] at (11.149,-0.674) {\insertshortauthor};
-    \node at (1.037,-0.578) {\includegraphics[width=0.25\paperwidth]{MSU_design_elements/MSU-Wordmark-Black}};
+    \node[black,font=\small] at (14.54025,-0.3426) {\insertshortauthor};
+    \node at (1.42,-0.2535) {\includegraphics[width=0.25\paperwidth]{MSU_design_elements/MSU-Wordmark-Black}};
 }
+
 \newcommand{\drawbottomoverlaygreen}[0]{
-    \node[MSU_1,font=\small] at (11.149,-0.674) {\insertshortauthor};
-    \node at (1.037,-0.578) {\includegraphics[width=0.25\paperwidth]{MSU_design_elements/MSU-Wordmark-Green}};
+    \node[MSU_1,font=\small] at (14.54025,-0.3426) {\insertshortauthor};
+    \node at (1.42,-0.2535) {\includegraphics[width=0.25\paperwidth]{MSU_design_elements/MSU-Wordmark-Green}};
 }
 
 \newcommand{\drawareagrid}[0]{
-	\draw (0,0) -- (0,6.25) -- (11.75,6.25) -- (11.75,0) -- cycle;
+	\draw (0,0) -- (0,6.25) -- (15,6.25) -- (15,0) -- cycle;
 
 	\draw[red,latex-latex] (0,0) -- (-0.5,0);
-	\draw[red,latex-latex] (11.75,0) -- (12.25,0);
+	\draw[red,latex-latex] (15,0) -- (15.5,0);
 
 	\draw[red,latex-latex] (0,6.25) -- (-0.5,6.25);
-	\draw[red,latex-latex] (11.75,6.25) -- (12.25,6.25);
+	\draw[red,latex-latex] (15,6.25) -- (15.5,6.25);
 
 	\foreach \y in {0,...,25}
 	{
 		\pgfmathsetmacro\absy{0.25*\y};
-		\draw (0,\absy) -- (11.75,\absy);
+		\draw (0,\absy) -- (15,\absy);
 	}
 
 	\foreach \y in {1,...,24}
@@ -58,13 +60,13 @@
 		\node[font=\tiny] at (-0.25,\absy) {\absy};
 	}
 
-	\foreach \x in {0,...,47}
+	\foreach \x in {0,...,60}
 	{
 		\pgfmathsetmacro\absx{0.25*\x};
 		\draw (\absx,0) -- (\absx,6.25);
 	}
 
-	\foreach \x in {0,...,47}
+	\foreach \x in {0,...,60}
 	{
 		\pgfmathsetmacro\absx{0.25*\x};
 		\node[font=\tiny] at (\absx,6.5) [rotate=90] {\absx};
@@ -74,7 +76,7 @@
 \newcommand{\thanksshield}[0]{
 	\begin{tikzpicture}[remember picture, overlay]
 	\begin{scope}[xshift=-0.5cm,yshift=-2.75cm]
-		\node at (0.45\paperwidth,0.175\paperheight) {\includegraphics[width=0.5\paperwidth]{MSU_design_elements/shield-green-line-CMYK}};
+		\node at (0.45\paperwidth,0.175\paperheight) {\includegraphics[width=0.45\paperwidth]{MSU_design_elements/shield-green-line-CMYK}};
 		\node[white,font=\huge\titlefont] at (0.45\paperwidth,0.175\paperheight) [anchor=center] {Thank you};
 	\end{scope}
 	\end{tikzpicture}

@@ -1,0 +1,20 @@
+\mode<presentation>
+
+% Frame title
+\defbeamertemplate*{frametitle}{MSU_Light}[1][]
+{
+\vskip1cm%
+  \begin{tikzpicture}
+  \useasboundingbox (0.5,0) rectangle(\the\paperwidth,1.1);
+
+  \ifx\insertframesubtitle\@empty%
+      {\node[anchor=west, MSU_TITLECOLOR, font=\LARGE\headingfont] at (0,0.61){\insertframetitle};}
+  \else%
+      {\node[anchor=west, MSU_TITLECOLOR, font=\large\headingfont] at (0,0.81){\insertframetitle};%
+       \node[anchor=west, MSU_TITLECOLOR, font=\small\headingfont] at (0,0.41){\insertframesubtitle};}%
+  \fi
+  
+  \end{tikzpicture}
+}
+
+\mode<all>
